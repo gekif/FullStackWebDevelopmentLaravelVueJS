@@ -17,4 +17,10 @@ class Question extends Model
      * $question = Question::find(1);
      * $question->user->email
      */
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = str_slug($value);
+    }
 }
