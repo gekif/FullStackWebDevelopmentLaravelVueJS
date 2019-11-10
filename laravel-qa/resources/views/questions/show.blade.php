@@ -38,7 +38,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">
-                            <h2>{{ $question->answers_count . " " . str_plural('Answer', $question->answers_count) }}</h2>
+                            <h2>{{ $question->answers_count . " " . str_plural('answer', $question->answers_count) }}</h2>
                         </div>
                         <hr>
                         @foreach($question->answers as $answer)
