@@ -1,67 +1,57 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-
 .counters {
   margin-right: 30px;
   font-size: 10px;
   text-align: center;
-}
 
-
-strong {
-  display: block;
-  font-size: 2em;
-}
-
-
-.vote, .answer {
-  width: 60px;
-  height: 60px;
-}
-
-
-.status {
-  // class "status unanswered"
-  &.unanswered {
-    border: none;
+  strong {
+    display: block;
+    font-size: 2em;
   }
 
-  &.answered {
-    border: 1px solid $color-green;
-    color: $color-green;
+  .vote, .answer {
+    width: 60px;
+    height: 60px;    
   }
 
-  &.answered-accepted {
-    background: $color-green;
-    color: $color-white;
+  .status {
+    &.unanswered {
+      border: none;
+    }
+
+    &.answered {
+      border: 1px solid $color-green;
+      color: $color-green;
+    }
+
+    &.answered-accepted {
+      background: $color-green;
+      color: $color-white;
+    }
   }
 
+  .view {
+    margin-top: 10px;
+  }
 }
-
-
-.view {
-  margin-top: 10px;
-}
-
 
 form.form-delete {
   display: inline;
 }
-
 
 .vote-controls {
   min-width: 60px;
@@ -75,10 +65,10 @@ form.form-delete {
 
   span {
     &.votes-count {
-      font-size: 25px;
+      font-size:25px;
     }
     &.favorites-count {
-      font-size: 12px;
+      font-size:12px;
     }
   }
 
@@ -88,7 +78,7 @@ form.form-delete {
 
     &.off, &.off:hover {
       color: $gray-500;
-    }
+    }    
 
     &.favorite {
       &.favorited, &.favorited:hover {
@@ -99,7 +89,5 @@ form.form-delete {
     &.vote-accepted {
       color: $green;
     }
-
-  }
-
+  }  
 }

@@ -10,13 +10,12 @@
                         <h1>Editing answer for question: <strong>{{ $question->title }}</strong></h1>
                     </div>
                     <hr>
-
-                    <form action="{{ route('questions.answers.update', [$question->id, $question->id]) }}" method="post">
+                    <form action="{{ route('questions.answers.update', [$question->id, $answer->id]) }}" method="post">
                         @csrf
                         @method('PATCH')
                         <div class="form-group">
-                            <textarea name="body" rows="7" class="form-control {{ $errors->has('body') ? 'is-invalid' : ''}}">{{ old('body', $answer->body) }}</textarea>
-                            @if($errors->has('body'))
+                            <textarea class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" rows="7" name="body">{{ old('body', $answer->body) }}</textarea>
+                            @if ($errors->has('body'))
                                 <div class="invalid-feedback">
                                     <strong>{{ $errors->first('body') }}</strong>
                                 </div>
@@ -31,5 +30,4 @@
         </div>
     </div>
 </div>
-
 @endsection

@@ -7,17 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     protected $fillable = ['title', 'body'];
-
-    public function user()
-    {
+    
+    public function user() {
         return $this->belongsTo(User::class);
-    }
-
-
-    /**
-     * $question = Question::find(1);
-     * $question->user->email
-     */
+    }    
 
     public function setTitleAttribute($value)
     {
@@ -25,18 +18,15 @@ class Question extends Model
         $this->attributes['slug'] = str_slug($value);
     }
 
-
     public function getUrlAttribute()
     {
-        return route('questions.show', $this->slug);
+        return route("questions.show", $this->slug);
     }
-
 
     public function getCreatedDateAttribute()
     {
         return $this->created_at->diffForHumans();
     }
-
 
     public function getStatusAttribute()
     {
@@ -46,21 +36,18 @@ class Question extends Model
             }
             return "answered";
         }
-
         return "unanswered";
     }
-
 
     public function getBodyHtmlAttribute()
     {
         return \Parsedown::instance()->text($this->body);
     }
 
-
     public function answers()
     {
         return $this->hasMany(Answer::class);
+        // $question->answers->count()
+        // foreach ($question->answers as $answer)
     }
-
-
 }
