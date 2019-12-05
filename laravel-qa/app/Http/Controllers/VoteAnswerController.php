@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Answer;
+use Illuminate\Http\Request;
 
 class VoteAnswerController extends Controller
 {
@@ -11,7 +10,6 @@ class VoteAnswerController extends Controller
     {
         $this->middleware('auth');
     }
-
 
     public function __invoke(Answer $answer)
     {
@@ -21,6 +19,4 @@ class VoteAnswerController extends Controller
 
         return back();
     }
-
-
 }
