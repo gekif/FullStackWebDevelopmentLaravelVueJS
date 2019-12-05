@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Rendering</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container py-5" id="app">
+    <ul class="list-group">
+        <li class="list-group-item" v-for="n in 5">{{ 'List ' + n }}</li>
+    </ul>
+</div>
+
+<script src="js/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app'
+    })
+</script>
+
+</body>
+</html>
