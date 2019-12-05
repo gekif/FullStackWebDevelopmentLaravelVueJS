@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Rendering</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container py-5" id="app">
+    <h2>Top 10 Frameworks</h2>
+    <ul class="list-group">
+        <li class="list-group-item" v-for="framework in topTenFrameworks">{{ framework }}</li>
+    </ul>
+</div>
+
+<script src="js/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            topTenFrameworks: [
+                "ASP.NET",
+                "Ruby on Rails",
+                "Laravel",
+                "React",
+                "Django",
+                "Vue",
+                "Angular",
+                "CodeIgniter",
+                "Flutter",
+                "Dart"
+            ]
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Rendering</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container py-5" id="app">
+    <h2>Top 10 Frameworks</h2>
+    <ul class="list-group">
+        <li v-for="(framework, index) of topTenFrameworks" class="list-group-item">{{ framework }}
+        <span class="bade badge-primary badge-pill">{{ scores[index] }}</span>
+        </li>
+    </ul>
+</div>
+
+<script src="js/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            topTenFrameworks: [
+                "ASP.NET",
+                "Ruby on Rails",
+                "Laravel",
+                "React",
+                "Django",
+                "Vue",
+                "Angular",
+                "CodeIgniter",
+                "Flutter",
+                "Dart"
+            ],
+            scores: [
+                100, 96, 95, 94, 93, 91, 89, 89, 88, 87, 86
+            ]
+        }
+    })
+</script>
+
+</body>
+</html>
