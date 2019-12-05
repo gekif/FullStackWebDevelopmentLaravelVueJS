@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Rendering</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container py-5" id="app">
+    <h2>Top 10 Frameworks</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Framework</th>
+            <th>Github Score</th>
+            <th>Stack Overflow Score</th>
+            <th>Overall Score</th>
+        </tr>
+        <tr v-for="framework of topTenFrameworks">
+            <td>{{ framework.name }}</td>
+            <td>{{ framework.github }}</td>
+            <td>{{ framework.stackoverflow }}</td>
+            <td>{{ framework.overall }}</td>
+        </tr>
+    </table>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            topTenFrameworks: [
+                {name: "ASP.NET", github: null, stackoverflow: 100, overall: 100},
+                {name: "Express", github: null, stackoverflow: 100, overall: 100},
+                {name: "PHP", github: null, stackoverflow: 100, overall: 100},
+                {name: "VUE", github: null, stackoverflow: 100, overall: 100},
+                {name: "Angular", github: null, stackoverflow: 100, overall: 100},
+                {name: "React", github: null, stackoverflow: 100, overall: 100},
+                {name: "Laravel", github: null, stackoverflow: 100, overall: 100},
+                {name: "CodeIgniter", github: null, stackoverflow: 100, overall: 100},
+                {name: "Crash Course", github: null, stackoverflow: 100, overall: 100},
+                {name: "Makan", github: null, stackoverflow: 100, overall: 100},
+            ]
+        }
+    })
+</script>
+
+</body>
+</html>

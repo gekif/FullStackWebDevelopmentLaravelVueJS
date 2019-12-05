@@ -10,13 +10,13 @@
 <div class="container py-5" id="app">
     <h2>Top 10 Frameworks</h2>
     <ul class="list-group">
-        <li v-for="(framework, index) of topTenFrameworks" class="list-group-item">{{ framework }}
+        <li v-for="(framework, index) of topTenFrameworks" class="list-group-item d-flex justify-content-between align-items-center">{{ framework }}
         <span class="bade badge-primary badge-pill">{{ scores[index] }}</span>
         </li>
     </ul>
 </div>
 
-<script src="js/vue.js"></script>
+<script src="../js/vue.js"></script>
 
 <script>
     new Vue({
