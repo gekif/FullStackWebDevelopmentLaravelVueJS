@@ -21,7 +21,7 @@
         </ul>
 
         <div class="form-group">
-          <input v-model="framework" type="text" class="form-control" placeholder="Enter Your another favorite Framework">
+          <input @keyup.enter="handleSubmit" @keyup.esc="clearText" v-model="framework" type="text" class="form-control" placeholder="Enter Your another favorite Framework">
         </div>
     </div>
 
@@ -29,23 +29,36 @@
     <script>
     new Vue({
         el: '#app',
+
         data: {
             favoriteFrameworks: [
                 { name: "Angular", votes: 0 },
                 { name: "React.js", votes: 0 },
                 { name: "Vue.js", votes: 0 },
             ],
+
             framework: ''
         },
+
         methods: {
             upvote (framework) {
                 framework.votes++
             },
+
             handleSubmit () {
-                this.favoriteFrameworks.push({
-                    name: this.framework,
-                    votes: 0
-                });
+                if (this.framework.trim()){
+
+                    this.favoriteFrameworks.push({
+                        name: this.framework,
+                        votes: 0
+                    });
+
+                    this.framework = ''
+                }
+
+            },
+
+            clearText() {
                 this.framework = ''
             }
         }
