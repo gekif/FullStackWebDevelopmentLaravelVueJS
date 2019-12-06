@@ -8,21 +8,25 @@
 <body>
 
 <div class="container py-5" id="app">
-    <div v-if="!records.length && showAlert" class="alert alert-warning">
+    <div v-if="records.length < 0" class="alert alert-warning">
         You don't have any record
     </div>
-    <button v-on:click="showAlert = false" class="btn btn-primary">Hide Message</button>
+    <div v-else-if="records.length === 1" class="alert alert-primary">
+        You only have 1 record
+    </div>
+    <div v-else class="alert alert-success">
+        You have some record
+    </div>
 </div>
 
 
-<script src="js/vue.js"></script>
+<script src="../js/vue.js"></script>
 
 <script>
     new Vue({
         el: '#app',
         data: {
-            showAlert: true,
-            records: [1]
+            records: [1, 2]
         }
     })
 </script>
