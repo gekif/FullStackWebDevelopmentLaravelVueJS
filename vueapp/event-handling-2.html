@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container py-5" id="app">
-        <div id="box" class="row bg-info">
+        <div id="box" @mousemove="getCoordinates" class="row bg-info">
            <div class="col my-auto text-center text-light">
              Mouse over here
            </div>
@@ -34,7 +34,13 @@
         data: {
             x: 0,
             y: 0
-        }        
+        },
+        methods: {
+            getCoordinates(event) {
+                this.x = event.clientX;
+                this.y = event.clientY;
+            }
+        }
     })
     </script>
 </body>
