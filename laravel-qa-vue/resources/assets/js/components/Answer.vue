@@ -17,7 +17,6 @@
                         <div class="ml-auto">
                             <a v-if="authorize('modify', answer)" @click.prevent="edit" class="btn btn-sm btn-outline-info">Edit</a>
                             <button v-if="authorize('modify', answer)" @click="destroy" class="btn btn-sm btn-outline-danger">Delete</button>
-
                         </div>
                     </div>
                     <div class="col-4"></div>
@@ -31,10 +30,17 @@
 </template>
 
 <script>
+    import Vote from './Vote.vue';
+    import UserInfo from './UserInfo.vue';
+
     export default {
         name: "Answer",
 
         props: ['answer'],
+
+        components: {
+            Vote, UserInfo
+        },
 
         data() {
             return {
