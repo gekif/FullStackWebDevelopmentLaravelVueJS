@@ -7,7 +7,22 @@ use App\Question;
 use Illuminate\Http\Request;
 
 class AnswersController extends Controller
-{    
+{
+    public function __construct()
+    {
+        $this->middleware('auth')
+            ->except('index');
+    }
+
+
+    public function index(Question $question)
+    {
+        return $question->answers()
+            ->with('user')
+            ->simplePaginate(3);
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -23,6 +38,7 @@ class AnswersController extends Controller
         return back()->with('success', "Your answer has been submitted successfully");
     }    
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -35,6 +51,7 @@ class AnswersController extends Controller
 
         return view('answers.edit', compact('question', 'answer'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -58,8 +75,10 @@ class AnswersController extends Controller
             ]);
         }
 
-        return redirect()->route('questions.show', $question->slug)->with('success', 'Your answer has been updated');
+        return redirect()->route('questions.show', $question->slug)
+            ->with('success', 'Your answer has been updated');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -81,4 +100,5 @@ class AnswersController extends Controller
 
         return back()->with('success', "Your answer has been removed");
     }
+
 }
